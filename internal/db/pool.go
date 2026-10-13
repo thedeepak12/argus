@@ -11,13 +11,13 @@ import (
 func NewPool(ctx context.Context) *pgxpool.Pool {
 	dbURL := os.Getenv("DATABASE_URL")
 	if dbURL == "" {
-        log.Fatal("DATABASE_URL environment variable is not set")
-    }
+		log.Fatal("DATABASE_URL environment variable is not set")
+	}
 
-    pool, err := pgxpool.New(ctx, dbURL)
-    if err != nil {
-        log.Fatalf("Unable to create connection pool: %v\n", err)
-    }
+	pool, err := pgxpool.New(ctx, dbURL)
+	if err != nil {
+		log.Fatalf("Unable to create connection pool: %v\n", err)
+	}
 
-    return pool
+	return pool
 }
